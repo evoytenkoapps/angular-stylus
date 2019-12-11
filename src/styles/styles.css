@@ -1,0 +1,28 @@
+.app-website-navbar {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 100vh;
+  background-color: #212530;
+}
+.website-navbar__brand {
+  padding: 28px 32px;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+.website-navbar__menu {
+  margin-bottom: auto;
+  padding: 32px 32px;
+}
+.website-navbar__help {
+  height: 104px;
+  padding: 40px 32px;
+  border-top: solid 1px rgba(255,255,255,0.1);
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+.website-navbar__user {
+  height: 168px;
+  padding: 40px 32px;
+}
+.website-navbar__sign-in {
+  background-color: #f0f;
+}
