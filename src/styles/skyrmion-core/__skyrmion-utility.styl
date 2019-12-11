@@ -1,0 +1,29 @@
+// no-scroll
+.js-no-scroll
+   overflow: hidden !important // @stylint ignore
+
+   body&
+      overflow: hidden
+      position: fixed
+      max-width: 100%
+      height: 100vh
+
+// hidden
+.is-hidden
+   visibility: hidden !important // @stylint ignore
+   width: 0 !important // @stylint ignore
+   height: 0 !important // @stylint ignore
+   margin: 0 !important // @stylint ignore
+   padding: 0 !important // @stylint ignore
+   font-size: 0 !important // @stylint ignore
+
+// sreader
+[data-sreader]
+   overflow: hidden !important // @stylint ignore
+   position: absolute !important // @stylint ignore
+   width: 1px !important // @stylint ignore
+   height: 1px !important // @stylint ignore
+   padding: 0 !important // @stylint ignore
+   white-space: nowrap !important // @stylint ignore
+   border: 0 !important // @stylint ignore
+   clip: rect(0, 0, 0, 0) !important // @stylint ignore

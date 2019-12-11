@@ -1,0 +1,206 @@
+// media queries
+media(value)
+
+   // base
+   if value == base
+      @media (max-width: ($mq-mini - 0.02) * 1px)
+         {block}
+
+   else if value == base-mini
+      @media (max-width: ($mq-lite - 0.02) * 1px)
+         {block}
+
+   else if value == base-lite
+      @media (max-width: ($mq-full - 0.02) * 1px)
+         {block}
+
+   else if value == base-full
+      @media (max-width: ($mq-wide - 0.02) * 1px)
+         {block}
+
+   else if value == base-wide
+      @media (max-width: ($mq-mega - 0.02) * 1px)
+         {block}
+
+   // mini
+   else if value == mini-up
+      @media (min-width: $mq-mini * 1px)
+         {block}
+
+   else if value == mini
+      @media (min-width: $mq-mini * 1px) and (max-width: ($mq-lite - 0.02) * 1px)
+         {block}
+
+   else if value == mini-lite
+      @media (min-width: $mq-mini * 1px) and (max-width: ($mq-full - 0.02) * 1px)
+         {block}
+
+   else if value == mini-full
+      @media (min-width: $mq-mini * 1px) and (max-width: ($mq-wide - 0.02) * 1px)
+         {block}
+
+   else if value == mini-wide
+      @media (min-width: $mq-mini * 1px) and (max-width: ($mq-mega - 0.02) * 1px)
+         {block}
+
+   // lite
+   else if value == lite-up
+      @media (min-width: $mq-lite * 1px)
+         {block}
+
+   else if value == lite
+      @media (min-width: $mq-lite * 1px) and (max-width: ($mq-full - 0.02) * 1px)
+         {block}
+
+   else if value == lite-full
+      @media (min-width: $mq-lite * 1px) and (max-width: ($mq-wide - 0.02) * 1px)
+         {block}
+
+   else if value == lite-wide
+      @media (min-width: $mq-lite * 1px) and (max-width: ($mq-mega - 0.02) * 1px)
+         {block}
+
+   // full
+   else if value == full-up
+      @media (min-width: $mq-full * 1px)
+         {block}
+
+   else if value == full
+      @media (min-width: $mq-full * 1px) and (max-width: ($mq-wide - 0.02) * 1px)
+         {block}
+
+   else if value == full-wide
+      @media (min-width: $mq-full * 1px) and (max-width: ($mq-mega - 0.02) * 1px)
+         {block}
+
+   // wide
+   else if value == wide-up
+      @media (min-width: $mq-wide * 1px)
+         {block}
+
+   else if value == wide
+      @media (min-width: $mq-wide * 1px) and (max-width: ($mq-mega - 0.02) * 1px)
+         {block}
+
+   // mega
+   else if value == mega-up
+      @media (min-width: $mq-mega * 1px)
+         {block}
+
+   // hidpi
+   else if value == hidpi
+      @media (min-resolution: 192dpi), (min-resolution: 2dppx)
+         {block}
+
+// grid outer
+gs-outer(base-v, mini-v, lite-v, full-v, wide-v, mega-v)
+   padding-right: base-v
+   padding-left: base-v
+
+   +media(mini)
+      padding-right: mini-v
+      padding-left: mini-v
+
+   +media(lite)
+      padding-right: lite-v
+      padding-left: lite-v
+
+   +media(full)
+      padding-right: full-v
+      padding-left: full-v
+
+   +media(wide)
+      padding-right: wide-v
+      padding-left: wide-v
+
+   +media(mega-up)
+      padding-right: mega-v
+      padding-left: mega-v
+
+// grid wrap
+gs-wrap(type)
+
+   if type == simple
+      width: 100%
+
+   else if type == fluid
+      width: 100%
+      padding-right: ($gs-gutters / 2)
+      padding-left: ($gs-gutters / 2)
+
+   else if type == fixed
+      width: 100%
+      max-width: $gs-wrapper
+      padding-right: ($gs-gutters / 2)
+      padding-left: ($gs-gutters / 2)
+
+// grid line
+gs-line(row-type)
+
+   if row-type == simple
+      display: flex
+      flex-wrap: wrap
+
+   else if row-type == gutter
+      display: flex
+      flex-wrap: wrap
+      margin-right: ($gs-gutters / -2)
+      margin-left: ($gs-gutters / -2)
+
+// grid cols
+gs-cols(row-type, col-type, value)
+
+   // simple
+   if row-type == simple
+
+      // equal
+      if col-type == equal
+         flex-basis: 0
+         flex-grow: 1
+         max-width: 100%
+
+      // auto
+      else if col-type == auto        
+
+         if value == 0
+            flex: 0 0 auto
+            width: auto
+            max-width: 100%
+
+         else
+            flex: 0 0 value
+            width: 100%
+            max-width: value
+
+      // fixed
+      else if col-type == fixed
+         flex: 0 0 (100% / $gs-columns) * value
+         width: 100%
+         max-width: (100% / $gs-columns) * value
+
+   // gutter
+   else if row-type == gutter
+
+      // equal
+      if col-type == equal
+         flex-basis: 0
+         flex-grow: 1
+         max-width: 100%
+         padding-right: ($gs-gutters / 2)
+         padding-left: ($gs-gutters / 2)
+
+      // auto
+      else if col-type == auto
+         flex: 0 0 auto
+         width: auto
+         max-width: 100%
+         padding-right: ($gs-gutters / 2)
+         padding-left: ($gs-gutters / 2)
+
+      // fixed
+      else if col-type == fixed
+         flex: 0 0 (100% / $gs-columns) * value
+         width: 100%
+         max-width: (100% / $gs-columns) * value
+         padding-right: ($gs-gutters / 2)
+         padding-left: ($gs-gutters / 2)

@@ -1,0 +1,45 @@
+// basics
+@media print
+   // 
+   *, *::before, *::after
+      text-shadow: none !important // @stylint ignore
+      background: transparent !important // @stylint ignore
+      box-shadow: none !important // @stylint ignore
+
+   a, a:visited
+      text-decoration: underline
+
+   a[href]::after
+      content: ' (' attr(href) ')'
+
+   a[href^='#']::after // @stylint ignore
+      content: ''
+
+   abbr[title]::after
+      content: ' (' attr(title) ')'
+
+   pre
+      white-space: pre-wrap !important // @stylint ignore
+
+   blockquote, pre
+      border: 1px solid #999999 // @stylint ignore
+      page-break-inside: avoid
+
+   thead
+      display: table-header-group
+
+   img, tr
+      page-break-inside: avoid
+
+   h2, h3, p
+      orphans: 3
+      widows: 3
+
+   h2, h3
+      page-break-after: avoid
+
+   table
+      border-collapse: collapse !important // @stylint ignore
+
+      th, td
+         background-color: #FFFFFF !important // @stylint ignore

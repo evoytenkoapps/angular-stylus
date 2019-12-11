@@ -1,0 +1,146 @@
+// effect
+effect(value)
+   //
+   if value == hover
+      .js-no-touch &:hover, &:active
+         {block}
+
+   else if value == focus
+      &:focus
+         {block}
+
+   else if value == fully
+      .js-no-touch &:hover, &:focus, &:active
+         {block}
+
+// states
+states(value)
+   //
+   if value == active
+      &.is-active
+         {block}
+
+   else if value == disabled
+      &.is-disabled
+         {block}
+
+   else if value == selected
+      &.is-selected
+         {block}
+
+// card-link
+card-link()
+   //
+   &::after
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 100
+      content: ''
+      background-color: rgba(0, 0, 0, 0)
+      pointer-events: auto
+
+// block-cover
+block-cover(height, type)
+
+   // fluid
+   if height == 0
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+
+      // none
+      if type == none
+         img, video
+            width: 100%
+            height: 100%
+
+      // specified
+      else
+         img, video
+            width: 100%
+            height: 100%
+            object-fit: type
+
+   // fixed
+   else
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      z-index: -1
+      height: height
+
+      // none
+      if type == none
+         img, video
+            width: 100%
+            height: 100%
+
+      // specified
+      else
+         img, video
+            width: 100%
+            height: 100%
+            object-fit: type
+
+// bg-image
+bg-image(folder, name, format, size, width, height)
+
+   // vector
+   if format == svg
+
+      // fixed
+      if size == fixed
+         background-image: url(../design/folder/name.format)
+         background-size: width height
+
+      // cover
+      else if size == cover
+         background-image: url(../design/folder/name.format)
+         background-size: cover
+
+      // contain
+      else if size == contain
+         background-image: url(../design/folder/name.format)
+         background-size: contain
+
+   // other
+   else
+
+      // fixed
+      if size == fixed
+         background-image: url(../design/folder/name.format)
+         background-size: width height
+
+         +media(hidpi)
+            background-image: url(../design/folder/name@2x.format)
+
+      // cover
+      else if size == cover
+         background-image: url(../design/folder/name.format)
+         background-size: cover
+
+         +media(hidpi)
+            background-image: url(../design/folder/name@2x.format)
+            background-size: cover
+
+      // contain
+      else if size == contain
+         background-image: url(../design/folder/name.format)
+         background-size: contain
+
+         +media(hidpi)
+            background-image: url(../design/folder/name@2x.format)
+            background-size: contain
+
+// only-ie
+only-ie()
+   // 
+   html[data-useragent*='Trident'] &
+      {block}
