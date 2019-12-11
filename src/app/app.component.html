@@ -1,1 +1,15 @@
-<app-website-navbar></app-website-navbar>
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [opened]="true"
+    [disableClose]="true"
+    [mode]="'side'"
+    [position]="'start'"
+  >
+    <app-website-navbar
+    ></app-website-navbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
